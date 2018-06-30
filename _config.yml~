@@ -1,7 +1,6 @@
 markdown: kramdown
 highlighter: rouge
-#permalink: /:categories/:title.html 
-permalink: /:title.html 
+permalink: /:categories/:title.html 
 excerpt_separator: "<!-- more -->"
 
 github: yysue

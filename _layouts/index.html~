@@ -118,7 +118,7 @@
       <!-- /.row -->
 
       <!-- Footer -->
-      <footer>
+      <footer class="footer">
         <div class="row">
           <div class="col-lg-12">
             {% include copyright.html %} 
