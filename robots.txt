@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://yysue.github.io/atom.xml
