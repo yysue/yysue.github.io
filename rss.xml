@@ -7,15 +7,15 @@ layout : nil
 <channel>
 <title>{{site.name |append:' ' xml_escape}}</title>
 <image>
-    <link>https://h2o1k.net</link>
-    <url>http://yysue.me/images/logo.png</url>
+    <link>https://yysue.github.io</link>
+    <url>https://yysue.github.io/images/logo.png</url>
 </image>
-<link>http://yysue.me</link>
+<link>https://yysue.github.io</link>
 <description/>
 <language>zh-cn</language>
-<generator>http://yysue.me</generator>
+<generator>https://yysue.github.io</generator>
 <ttl>5</ttl>
-<copyright><![CDATA[Copyright &copy; yysue.me]]></copyright>
+<copyright><![CDATA[Copyright &copy; yysue.github.io]]></copyright>
 {% for post in site.posts limit: 20 %}
      <item>
          <title>{{ post.title | append:' ' xml_escape }}</title>

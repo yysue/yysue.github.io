@@ -9,18 +9,10 @@ email: xxx#163.com
 name: "yysue's Blog"
 baseurl: /
 url: https://yysue.github.io
-domain: www.yysue.github.io
+domain: yysue.github.io
 
 all_categories: [
   ["android", "Android开发","/android/index.html"], 
-  ["react", "React Native", "/react/index.html"],
-  ["web", "Web建站","/web/index.html"], 
-  ["linux", "Linux相关","/linux/index.html"],
-  ["git", "git用法","/git/index.html"],
-  ["program", "软件开发","/program/index.html"],
-  ["vps", "VPS","/vps/index.html"],
-  ["other", "杂记","/other/index.html"],
-  ["read", "书摘","/read/index.html"], 
   ["about", "关于","/about.html"]
 ]
 

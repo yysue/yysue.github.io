@@ -1,2 +1,2 @@
-bundle exec jekyll serve -I -V --skip-initial-build
+# bundle exec jekyll serve -I -V --skip-initial-build
 
