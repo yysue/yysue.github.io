@@ -38,6 +38,11 @@ footer {
 	padding:2px 0 2px 10px; 
 }
 
+.post_navi > h2 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
 .post_navi_span{
 	font-size:15px;
 }
