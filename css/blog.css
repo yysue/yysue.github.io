@@ -6,11 +6,11 @@ footer {
     margin: 5px 0;
     font-size: 14px;
     color: #999;
-    position: absolute;
+    /*position: absolute;
     left: 0;
     bottom: 0;
     width: 90%;
-    min-height: 50px;
+    min-height: 50px;*/
 }
 
 .post-date{
