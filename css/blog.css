@@ -53,6 +53,13 @@ footer {
 	font-size:13px;
 }
 
+.content {
+	padding:10px;
+}
+.content img {
+	max-width: 99.9%;
+}
+
 .hrline{
 	width:85%;
 	margin: 0px auto;
