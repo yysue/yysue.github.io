@@ -20,13 +20,13 @@ footer:
 author: 'yysue'
 nickname: 'yysue'
 bio: '"经历"不总结就是"经过"了'
-avatar: '/assets/img/profile.png'
+avatar: '/assets/img/profile.jpg'
 
 # Search
 search: true
 
 # Night mode
-nightMode: true
+nightMode: false
 
 # Comments 评论功能
 comments:
