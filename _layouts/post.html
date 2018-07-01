@@ -1,116 +1,146 @@
---- 
-layout: default 
---- 
-<!-- {% for cat in site.all_categories %}{% if page.category == cat[0] %}{% assign category_name = cat[1] %}{% assign category_link = cat[2] %}{% endif %}{% endfor %} -->
-{% assign category_name = page.categories %}
-{% assign category_link = page.categories %}
-{% assign category_posts=site.categories[page.category] %}{% assign prevpost = nil %}{% assign nextpost = nil %}{% assign found = false %}
-{% for post in category_posts %}{% if found==true %}{% assign prevpost = post %}{% break %}{% endif %}{% if page.url==post.url %}{% assign found = true %}{% endif %}{% if found==false %}{% assign nextpost = post %}{% endif %}{% endfor %}
-{% assign category_posts=nil %}
-<div  class="post_frame">
-<!-- Navi -->
-<div class="post_navi">
-	<a href="/">首页</a>&nbsp;>&nbsp;
-	<a href="{{ category_link }}">{{ page.categories }}</a>&nbsp;>&nbsp;
-	<span class="post_navi_span">正文</span>
-</div>
+<!DOCTYPE html>
+<html>
+{% include post-head.html %}
 
-<!-- Title -->
-<div class="post_titlearea">
-	<h1>{{ page.title }}</h1>
-	<hr class="hrline"/>
-	<div class="post_titledate"/>
-		yysue&nbsp;&nbsp;&nbsp;
-		分类：<a href="{{ category_link }}">{{ category_name }}</a>&nbsp;&nbsp;&nbsp;
-		{% if page.tags.size > 0%}
-			标签：{% for tag in page.tags %}
-					{% if tag != "" %}
-					<a href="/tag/{{ tag }}.html">{{ tag }}</a>
-					{% if forloop.index != page.tags.size %},
-					{% endif %}
-					{% endif %}
-				 {% endfor %}
-		{% endif %}&nbsp;&nbsp;&nbsp;
-		日期：{{ page.date | date:"%Y-%m-%d" }}&nbsp;&nbsp;&nbsp;
-		<span id="busuanzi_container_page_pv">阅读：<span id="busuanzi_value_page_pv"></span></span>
-	</div>
-</div>
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="{{ site.nightMode }}"> {% include header.html %}
 
-<!-- adsense_468x60 -->
-<div style="text-align:center;margin-top:15px">
-	 {% include adsense_468x60.html %} 
-</div>
-<br/>
+  <header class="g-banner post-header {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }} {% unless page.cover %}post-no-cover{% endunless %}" data-theme="{{ site.theme-color }}">
+    <div class="post-wrapper">
+      <div class="post-tags">
+        {% if page.tags.size > 0 %}
+          {% for tag in page.tags  %}
+            <a href="{{ "tags#" | append: tag | absolute_url }}" class="post-tag">{{ tag }}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="{{ site.url }}" target="_blank" rel="author">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a></></span>
+        <time class="post-meta-item" datetime="{{ page.date | date:"%y-%m-%d" }}"><i class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
+      </div>
+    </div>
+    {% if page.cover %}
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('{{ page.cover }}') center no-repeat; background-size: cover;"></div>
+    {% endif %}
+  </header>
 
-<!-- content -->
-<!-- style="text-indent:2em;padding:10px" -->
-<div class="content">
-{{ content }}
-</div>
+  <div class="post-content visible">
+    {% if page.subtitle %}
+    <h2 class="post-subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
 
+    <article class="markdown-body">
+      {{ page.content }}
+    </article>
 
-<!-- <div style="text-align:center">
-	<div>
-		<b>本文为原创文章，转载请注明出处：</b><a href="https://www.h2o1k.net">yysue's Blog</a> » <a href="{{site.url}}{{page.url}}" title="{{page.name}}">{{ page.title }}</a>
-	</div>
-	<div class="friend_alert">
-		如果本站内容帮助到了你，请记得收藏、分享，或打赏支持，谢谢！
-	</div>
-	<div id="donate_div" class="donate_block">
-		<div class="donate_block_left">
-			<img src="/images/donate_alipay.jpg" class="donate_block_image"/><br/>
-			<div class="donate_block_title">支付宝</div>
-		</div>
-		<div class="donate_block_right">
-			<img src="/images/donate_weixin.jpg" class="donate_block_image"/><br/>
-			<div class="donate_block_title">微信</div>
-		</div>
-	</div>
-	<div class="donate_button">
-		<a onclick="donate()">打赏</a>
-	</div>
-</div>
-<hr/> -->
-
-
-<!-- next and previous -->
-<div style="margin:10px">
-  <span class="next">
-		{% if prevpost %}
-    上篇：
-    <a href="{{prevpost.url}}">
-      {{prevpost.title}}
-    </a>
-		{%else%}
-			<a href="{{category_link}}">
-				{{category_name}}
-			</a>
-		{%endif%} 
-  </span>
-  
-  <div style="float:right">
-  <span class="prev" >
-		{% if nextpost %}
-    下篇：
-    <a href="{{nextpost.url}}">
-      {{nextpost.title}}
-    </a>
-		{%else%}
-			<a href="{{category_link}}">
-				{{category_name}}
-			</a>
-		{%endif%}
-  </span>
+    {% if site.social-share %}
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    {% endif %}
   </div>
-</div>
 
-<!-- <hr> -->
-<!-- Blog Comments -->
-<div class="media">
-  {% include comment.html %} 
-</div>
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="{{ site.avatar | absolute_url }}" alt="">
+      </div>
+      <div class="author-name" rel="author">{{ site.author }}</div>
+      <div class="bio">
+        <p>{{ site.bio }}</p>
+      </div>
+      {% if site.sns.size > 0 %}
+      <ul class="sns-links">
+        {% for s in site.sns %}
+        <li>
+          <a href="{{ s[1] }}" target="_blank">
+                    <i class="iconfont icon-{{ s[0] }}"></i>
+                </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </section>
+    <section class="post-footer-item read-next">
+      {% if page.next.url %}
+      <div class="read-next-item">
+        <a href="{{ page.next.url }}" class="read-next-link"></a>
+        <section>
+          <span>{{ page.next.title }}</span>
+          <p>{{ page.next.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+        </section>
+        {% if page.next.cover %}
+        <div class="filter"></div>
+        <img src="{{ page.next.cover }}" alt="">
+        {% endif %}
+     </div>
+      {% endif %}
 
-</div>
+      {% if page.previous.url %}
+      <div class="read-next-item">
+        <a href="{{ page.previous.url }}" class="read-next-link"></a>
+          <section>
+            <span>{{ page.previous.title }}</span>
+            <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+          </section>
+          {% if page.previous.cover %}
+          <div class="filter"></div>
+          <img src="{{ page.previous.cover }}" alt="">
+          {% endif %}
+      </div>
+      {% endif %}
+    </section>
+    <section class="post-footer-item comment">
+      <div id="disqus_thread"></div>
+    </section>
+  </section>
 
-<!-- donate -->
-<!-- <script type="text/javascript" src="/js/donate.js"></script> -->
+  {% include footer.html %}
+
+  <script src="/assets/js/social-share.min.js"></script>
+  <script>
+    socialShare('.social-share', {
+      sites: [
+        {% for i in site.social-share-items %}
+          '{{ i }}'
+          {% if forloop.last == false %},
+          {% endif %}
+        {% endfor %}
+      ],
+      wechatQrcodeTitle: "分享到微信朋友圈",
+      wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+  </script>
+
+  {% if site.comments.disqus %}
+  <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document,
+        s = d.createElement('script');
+      s.src = '{{ site.comments.disqus_url }}';
+      s.setAttribute('data-timestamp', +new Date());
+
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  {% endif %}
+
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
+
+</html>

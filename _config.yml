@@ -1,63 +1,80 @@
-#permalink: /:categories/:title.html 
-permalink: /:title.html 
-excerpt_separator: "<!-- more -->"
+# Site settings 配置站点
+title: "yysue's Blog"
+description: ''
+keyword: ''
+url: 'https://yysue.github.io' # your host
 
-github: yysue
-author: "yysue"
-email: xxx#163.com
-name: "yysue's Blog"
-baseurl: /
-url: https://yysue.github.io
-domain: yysue.github.io
+# if you don't need baseurl, you should leave this value blank.
+baseurl: ''
 
-all_categories: [
-  ["android", "Android开发","/android/index.html"], 
-  ["about", "关于","/about.html"]
-]
+# Navigation links
+nav:
+  home: '/'
+  tags: '/tags.html'
 
-paginate: 10 
-paginate_path: "index_:num"
+# Footer
+footer:
+  since: 2017
 
-index_layout: "index.html"
-category_layout: "_layouts/category.html"
-tag_layout: "_layouts/tag.html"
+# Author 配置博主信息
+author: 'yysue'
+nickname: 'yysue'
+bio: '"经历"不总结就是"经过"了'
+avatar: '/assets/img/profile.png'
 
-#不使用gems库中的jekyll-paginate-category
-#使用基于jekyll-paginate改写的的栏目分页插件，所以jekyll-paginate还需要用上。
-#gems: [jekyll-paginate,jekyll-paginate-category]
-gems: [jekyll-paginate]
+# Search
+search: true
 
-collections:
-  docs:
-    output: true
+# Night mode
+nightMode: true
 
-copyright: []
-#timezone: Asia/Shanghai
+# Comments 评论功能
+comments:
+  disqus: false
+  disqus_url: 'https://liaokeyu.disqus.com/embed.js'
 
-defaults:
-  -
-    scope:
-      path: "" # 一个空的字符串代表项目中所有的文件
-      type: "posts" # 以前的 `post`， 在 Jekyll 2.2 里。
-    values:
-      layout: "default"
+# MathJax 公式支持 by Ray-Eldath
+mathjax: true
 
-markdown: redcarpet
-redcarpet:
-    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
-# highlighter: pygments
+# Share
+social-share: true
+social-share-items: ['wechat', 'weibo', 'douban', 'twitter']
+
+# theme color 主题皮肤
+theme-color: 'default'  # pink or default
+
+# Post header background patterns (when the post no cover): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
+postPatterns: 'circuitBoard'
+
+# SNS settings 配置社交网站
+# url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
+sns:
+  weibo: '//weibo.com/id'
+  juejin: '//juejin.im/user/id'
+  instagram: '//www.instagram.com/id'
+  github: '//github.com/yysue'
+
+# Tags 设置标签
+recommend-tags: true # whether or not display recommend-tags on the sidebar
+recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
+
+# Build settings
+paginate: 6
+paginate_path: 'page:num'
+exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md']
+
+# Markdown
+markdown: kramdown
 highlighter: rouge
-# markdown: kramdown
-# highlighter:    rouge
-# kramdown:
-#   input:                     GFM
-#   auto_ids:                  true
-#   footnote_nr:               1
-#   entity_output:             as_char
-#   toc_levels:                1..6
-#   smart_quotes:              lsquo,rsquo,ldquo,rdquo
-#   enable_coderay:            false
-#   hard_wrap:                 false
-#   syntax_highlighter:        rouge
-#   transliterated_header_ids: true
-#   footnote_backlink:         "&#8617;&#xfe0e;"
+kramdown:
+  input: GFM
+
+# RSS
+RSS: false
+
+# Permalink
+# See: https://github.com/kaeyleo/jekyll-theme-H2O/issues/35
+permalink: /:title.html
+
+# Plugins
+plugins: [jekyll-paginate]
