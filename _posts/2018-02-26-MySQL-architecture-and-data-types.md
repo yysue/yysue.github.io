@@ -94,6 +94,8 @@ http://blog.csdn.net/happylee6688/article/details/47150515
 
 下图是mysql的默认连接数
 
+
+
 ![](http://7xkmkl.com1.z0.glb.clouddn.com/20180227_001.png) 
 
 - max_connections：整个MySQL实例的最大链接数限制
