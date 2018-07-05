@@ -5,8 +5,10 @@ date: 2018-07-06
 author: yysue
 categories: algorithm
 tags: algorithm
-cover1: 'http://7xkmkl.com1.z0.glb.clouddn.com/algorithm-banner.jpg'
+cover: 'http://7xkmkl.com1.z0.glb.clouddn.com/algorithm-banner.jpg'
 ---
+
+> 以最经典的二分查找开头，引入**大O表示法**来表述运行时间，与极限类似，常数不重要，最重要的是阶（类似高阶无穷小）。 
 
 ![](http://7xkmkl.com1.z0.glb.clouddn.com/algorithm-banner.jpg)
 
