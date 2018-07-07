@@ -24,7 +24,7 @@ cover: 'http://7xkmkl.com1.z0.glb.clouddn.com/algorithm-banner.jpg'
 
 数组中元素的位置称为索引    元素xx位于索引xx处
 
-数组与链接不同操作对应的时间复杂度
+数组与链表不同操作对应的时间复杂度
 
 ![](http://7xkmkl.com1.z0.glb.clouddn.com/Jietu20180707-222144.jpg)
 
