@@ -32,7 +32,7 @@ cover: 'http://7xkmkl.com1.z0.glb.clouddn.com/algorithm-banner.jpg'
 
 定义:遍历这个数组,取出最大的元素添加到新数组中并在元数组中删除这个最大元素,再次遍历这个数组...直到原数组为空
 
-Python实现快速排序
+Python实现选择排序
 ```python
 def findSmallest(arr):
     smallest = arr[0]
