@@ -72,7 +72,7 @@ def quicksort(array):
         return array
     else:
         pivot = array[0] # 将第一个元素作为基准值
-        less = [i for i in array[1:] if i < pivot] # 小于基准值的数组
+        less = [i for i in array[1:] if i <= pivot] # 小于基准值的数组
         greater = [i for i in array[1:] if i > pivot] # 大于基准值的数组
         return quicksort(less) + [pivot] + quicksort(greater)
     
